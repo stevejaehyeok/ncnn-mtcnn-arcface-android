@@ -16,20 +16,10 @@
 #include <iostream>
 #include <math.h>
 
+#include "base.h"
+
 using namespace std;
 //using namespace cv;
-struct Bbox
-{
-    float score;
-    int x1;
-    int y1;
-    int x2;
-    int y2;
-    float area;
-    float ppoint[10];
-    float regreCoord[4];
-};
-
 
 class MTCNN {
 

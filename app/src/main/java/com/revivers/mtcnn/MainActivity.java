@@ -50,6 +50,7 @@ public class MainActivity extends Activity
 
     private TextView infoResult;
     private ImageView imageView;
+    private ImageView prevImageView;
     private Bitmap yourSelectedImage = null;
 
     //AppCompatEditText etMinFaceSize,etTestTimeCount,etThreadsNumber;
@@ -57,9 +58,16 @@ public class MainActivity extends Activity
     private int testTimeCount = 10;
     private int threadsNumber = 4;
 
-    private boolean maxFaceSetting = false;
+    private boolean maxFaceSetting = true;
 
     private MTCNN mtcnn = new MTCNN();
+
+    private ARCFACE arcface = new ARCFACE();
+
+    private int[] currentFaceInfo = new int[14];
+
+    private float[] prevFeature = null;
+    private boolean firstTime = true;
 
     //private GoogleApiClient client;
 
@@ -85,6 +93,8 @@ public class MainActivity extends Activity
             copyBigDataToSD("det1.param");
             copyBigDataToSD("det2.param");
             copyBigDataToSD("det3.param");
+            copyBigDataToSD("mobilefacenet.bin");
+            copyBigDataToSD("mobilefacenet.param");
             Log.i("Temp tag", "Succeeded to load the weights");
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,10 +108,21 @@ public class MainActivity extends Activity
 //        String sdPath = "src/main/assets/";
         Log.i("sdPath",sdPath);
         mtcnn.FaceDetectionModelInit(sdPath);
+
+
+        // Arcface model initialization
+        if (arcface.FeatureExtractionModelInit(sdPath)) {
+            Log.i("Temp tag", "ArcFace model successfully initialized");
+        }
+        else {
+            Log.i("Temp tag", "FAILED TO INITIALIZE THE ARCFACE MODEL!!!!!!!!");
+        }
+
         //Log.i("isMTCNN", isMTCNN + " ");
 
         infoResult = (TextView) findViewById(R.id.infoResult);
         imageView = (ImageView) findViewById(R.id.imageView);
+        prevImageView = (ImageView) findViewById(R.id.prevImageView);
 
         Button buttonImage = (Button) findViewById(R.id.buttonImage);
         buttonImage.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +163,7 @@ public class MainActivity extends Activity
 
                 long timeDetectFace = System.currentTimeMillis();
                 int faceInfo[] = null;
+
                 if(!maxFaceSetting) {
                     faceInfo = mtcnn.FaceDetect(imageDate, width, height, 4);
                     //Log.i(TAG, "检测所有人脸");
@@ -150,12 +172,22 @@ public class MainActivity extends Activity
                     faceInfo = mtcnn.MaxFaceDetect(imageDate, width, height, 4);
                     //Log.i(TAG, "检测最大人脸");
                 }
+
+                try {
+                    for(int i = 0; i < 14; i++) {
+                        currentFaceInfo[i] = faceInfo[i+1];
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    infoResult.setText("0 Face Detected");
+                    e.printStackTrace();
+                    return;
+                }
                 timeDetectFace = System.currentTimeMillis() - timeDetectFace;
                 //Log.i(TAG, "人脸平均检测时间："+timeDetectFace/testTimeCount);
 
                 if(faceInfo.length>1){
                     int faceNum = faceInfo[0];
-                    infoResult.setText("图宽："+width+"高："+height+"人脸平均检测时间："+timeDetectFace/testTimeCount+" 数目：" + faceNum);
+                    infoResult.setText("너비："+width+"     높이："+height+"     인식시간："+timeDetectFace/testTimeCount+"     얼굴 수：" + faceNum);
                     //Log.i(TAG, "图宽："+width+"高："+height+" 人脸数目：" + faceNum );
 
                     Bitmap drawBitmap = yourSelectedImage.copy(Bitmap.Config.ARGB_8888, true);
@@ -185,28 +217,39 @@ public class MainActivity extends Activity
             }
         });
 
-        Button buttonDetectGPU = (Button) findViewById(R.id.buttonDetectGPU);
-        buttonDetectGPU.setOnClickListener(new View.OnClickListener() {
+        Button buttonExtract = (Button) findViewById(R.id.buttonExtract);
+        buttonExtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                /*if (yourSelectedImage == null)
+
+                if(yourSelectedImage == null) {
                     return;
-
-                String result = squeezencnn.Detect(yourSelectedImage, true);
-
-                if (result == null)
-                {
-                    infoResult.setText("detect failed");
                 }
-                else
-                {
-                    infoResult.setText(result);
-                }*/
+
+                int width = yourSelectedImage.getWidth();
+                int height = yourSelectedImage.getHeight();
+                byte[] imageData = getPixelsRGBA(yourSelectedImage);
+
+                float[] feature = arcface.getFeature(imageData, width, height, 4, currentFaceInfo);
+
+                if(firstTime) {
+                    infoResult.setText("No previous feature to compare");
+                    firstTime = false;
+                }
+                else {
+                    double sim = 0.0;
+                    for (int i = 0; i < feature.length; i++)
+                        sim += feature[i] * prevFeature[i];
+                    String result = Double.toString(sim);
+                    infoResult.setText("유사도 (vs 전 사진): " + result);
+                }
+
+                prevFeature = feature;
             }
         });
 
-        Button testButton = (Button) findViewById(R.id.testButton);
-        testButton.setOnClickListener(new View.OnClickListener() {
+        Button buttonAtOnce = (Button) findViewById(R.id.buttonAtOnce);
+        buttonAtOnce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
                 /*String result = squeezencnn.Add();
@@ -260,6 +303,8 @@ public class MainActivity extends Activity
     }
 
 
+    boolean isFirstImage = true;
+    Bitmap prevBitmap;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
@@ -276,11 +321,21 @@ public class MainActivity extends Activity
                     Bitmap rgba = bitmap.copy(Bitmap.Config.ARGB_8888, true);
 
                     // resize to 227x227
-                    yourSelectedImage = Bitmap.createScaledBitmap(rgba, 227, 227, false);
+                    //yourSelectedImage = Bitmap.createScaledBitmap(rgba, 227, 227, false);
+                    yourSelectedImage = Bitmap.createScaledBitmap(rgba, rgba.getWidth(), rgba.getHeight(), false);
 
                     rgba.recycle();
 
-                    imageView.setImageBitmap(bitmap);
+                    if(isFirstImage) {
+                        imageView.setImageBitmap(bitmap);
+                        prevBitmap = bitmap;
+                        isFirstImage = false;
+                    }
+                    else {
+                        prevImageView.setImageBitmap(prevBitmap);
+                        imageView.setImageBitmap(bitmap);
+                        prevBitmap = bitmap;
+                    }
                 }
             }
             catch (FileNotFoundException e)

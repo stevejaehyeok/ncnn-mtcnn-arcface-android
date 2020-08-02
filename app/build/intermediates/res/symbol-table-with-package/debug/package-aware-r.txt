@@ -615,8 +615,9 @@ id async
 id beginning
 id blocking
 id bottom
+id buttonAtOnce
 id buttonDetect
-id buttonDetectGPU
+id buttonExtract
 id buttonImage
 id buttonPanel
 id center
@@ -668,6 +669,7 @@ id notification_background
 id notification_main_column
 id notification_main_column_container
 id parentPanel
+id prevImageView
 id progress_circular
 id progress_horizontal
 id radio
@@ -705,7 +707,6 @@ id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
-id testButton
 id text
 id text2
 id textSpacerNoButtons
