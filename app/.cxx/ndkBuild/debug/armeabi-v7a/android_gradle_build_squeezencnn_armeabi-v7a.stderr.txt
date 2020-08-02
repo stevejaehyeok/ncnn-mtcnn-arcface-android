@@ -1,0 +1,1 @@
+make: *** No rule to make target '/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/squeezencnn_jni.cpp', needed by '/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/objs-debug/squeezencnn/squeezencnn_jni.o'.  Stop.

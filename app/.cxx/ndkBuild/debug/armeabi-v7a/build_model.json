@@ -5,6 +5,7 @@
       "sdkFolder": "/Users/stevejaehyeokkim/Library/Android/sdk",
       "isNativeCompilerSettingsCacheEnabled": false,
       "isBuildOnlyTargetAbiEnabled": true,
+      "ideBuildTargetAbi": "x86,armeabi-v7a,armeabi",
       "splitsAbiFilterSet": [],
       "intermediatesFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates",
       "gradleModulePathName": ":app",
@@ -39,8 +40,7 @@
     "gradleBuildOutputFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/cxx/debug",
     "isDebuggableEnabled": true,
     "validAbiList": [
-      "ARMEABI_V7A",
-      "ARM64_V8A"
+      "ARMEABI_V7A"
     ],
     "buildTargetSet": []
   },

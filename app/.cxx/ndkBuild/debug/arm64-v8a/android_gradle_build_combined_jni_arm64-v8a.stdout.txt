@@ -1,0 +1,2 @@
+[arm64-v8a] Compile++      : combined_jni <= combined_jni.cpp
+[arm64-v8a] SharedLibrary  : libcombined_jni.so

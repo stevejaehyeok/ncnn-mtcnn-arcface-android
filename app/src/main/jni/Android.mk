@@ -30,8 +30,8 @@ include $(PREBUILT_STATIC_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_MODULE := squeezencnn
-LOCAL_SRC_FILES := squeezencnn_jni.cpp
+LOCAL_MODULE := combined_jni
+LOCAL_SRC_FILES := combined_jni.cpp
 
 LOCAL_C_INCLUDES := $(NCNN_INSTALL_PATH)/include $(NCNN_INSTALL_PATH)/include/ncnn
 
