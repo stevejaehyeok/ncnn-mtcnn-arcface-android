@@ -1,0 +1,44 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tencent.squeezencnn"
+4    android:versionCode="1"
+5    android:versionName="1.1" >
+6
+7    <uses-sdk android:minSdkVersion="24" />
+7-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+9-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:9:5-79
+9-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:9:22-77
+10    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+10-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:10:5-80
+10-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:10:22-78
+11
+12    <application
+12-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:12:5-20:19
+13        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
+13-->[com.android.support:support-compat:28.0.0] /Users/stevejaehyeokkim/.gradle/caches/transforms-2/files-2.1/dd1cf78f22bdd94f550130b281f27c97/support-compat-28.0.0/AndroidManifest.xml:22:18-91
+14        android:debuggable="true"
+15        android:label="@string/app_name"
+15-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:12:18-50
+16        android:testOnly="true" >
+17        <activity
+17-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:9-19:20
+18            android:name="com.tencent.squeezencnn.MainActivity"
+18-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:19-46
+19            android:label="@string/app_name" >
+19-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:14:19-51
+20            <intent-filter>
+20-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:15:13-18:29
+21                <action android:name="android.intent.action.MAIN" />
+21-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:16:17-69
+21-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:16:25-66
+22
+23                <category android:name="android.intent.category.LAUNCHER" />
+23-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:17:17-77
+23-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:17:27-74
+24            </intent-filter>
+25        </activity>
+26    </application>
+27
+28</manifest>

@@ -1,0 +1,58 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share",
+      "sdkFolder": "/Users/stevejaehyeokkim/Library/Android/sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates",
+      "gradleModulePathName": ":app",
+      "moduleRootFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app",
+      "makeFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/Android.mk",
+      "buildSystem": "NDK_BUILD",
+      "compilerSettingsCacheFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/.cxx",
+      "cxxFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx",
+      "ndkFolder": "/Users/stevejaehyeokkim/Library/Android/sdk/ndk/21.3.6528147",
+      "ndkVersion": "21.3.6528147",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [],
+    "variantName": "release",
+    "soFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates/ndkBuild/release/lib",
+    "objFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates/ndkBuild/release/obj/local",
+    "jsonFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release",
+    "gradleBuildOutputFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/cxx/release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARM64_V8A",
+  "abiPlatformVersion": 24,
+  "cxxBuildFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a",
+  "jsonFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a/android_gradle_build.json",
+  "gradleBuildOutputFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/cxx/release/arm64-v8a",
+  "objFolder": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates/ndkBuild/release/obj/local/arm64-v8a",
+  "buildCommandFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a/build_command.txt",
+  "buildOutputFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a/build_output.txt",
+  "modelOutputFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a/build_model.json",
+  "jsonGenerationLoggingRecordFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a/json_generation_record.json",
+  "compileCommandsJsonFile": "/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/.cxx/ndkBuild/release/arm64-v8a/compile_commands.json"
+}
