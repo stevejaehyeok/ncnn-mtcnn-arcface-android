@@ -1,6 +1,6 @@
 1<?xml version="1.0" encoding="utf-8"?>
 2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-3    package="com.tencent.squeezencnn"
+3    package="com.revivers.mtcnn"
 4    android:versionCode="1"
 5    android:versionName="1.1" >
 6
@@ -24,8 +24,8 @@
 16        android:testOnly="true" >
 17        <activity
 17-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:9-19:20
-18            android:name="com.tencent.squeezencnn.MainActivity"
-18-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:19-46
+18            android:name="com.revivers.mtcnn.MainActivity"
+18-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:19-65
 19            android:label="@string/app_name" >
 19-->/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:14:19-51
 20            <intent-filter>

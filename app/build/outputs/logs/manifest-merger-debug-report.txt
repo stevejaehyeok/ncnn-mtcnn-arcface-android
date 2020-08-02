@@ -34,7 +34,7 @@ INJECTED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace
 INJECTED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:4:1-21:12
 INJECTED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:4:1-21:12
 	package
-		ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:5:7-40
+		ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:5:7-35
 		INJECTED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -65,12 +65,12 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/stevejaehyeo
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/stevejaehyeokkim/.gradle/caches/transforms-2/files-2.1/dd1cf78f22bdd94f550130b281f27c97/support-compat-28.0.0/AndroidManifest.xml:22:18-91
 	android:label
 		ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:12:18-50
-activity#com.tencent.squeezencnn.MainActivity
+activity#com.revivers.mtcnn.MainActivity
 ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:9-19:20
 	android:label
 		ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:14:19-51
 	android:name
-		ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:19-46
+		ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:13:19-65
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/AndroidManifest.xml:15:13-18:29
 action#android.intent.action.MAIN

@@ -1,4 +1,4 @@
-#Sun Aug 02 17:35:36 KST 2020
+#Sun Aug 02 20:01:21 KST 2020
 base.0=/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
