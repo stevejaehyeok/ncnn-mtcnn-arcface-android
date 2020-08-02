@@ -30,13 +30,17 @@
 #include "net.h"
 #include "benchmark.h"
 #include "mtcnn.h"
+#include "arcface.h"
+#include "base.h"
 
 #include "squeezenet_v1.1.id.h"
 
 
 static MTCNN *mtcnn;
+static Arcface *arcface;
 
 bool detection_sdk_init_ok = false;
+bool extraction_sdk_init_ok = false;
 
 static std::vector<std::string> split_string(const std::string& str, const std::string& delimiter)
 {
@@ -339,6 +343,106 @@ extern "C" {
         mtcnn->SetTimeCount(timeCount);
         return true;
 
+    }
+
+    JNIEXPORT jboolean JNICALL
+    Java_com_revivers_mtcnn_ARCFACE_FeatureExtractionModelInit(JNIEnv *env, jobject instance, jstring ModelPath_) {
+
+        if(extraction_sdk_init_ok) {
+            // Model already initialized
+            return true;
+        }
+
+        jboolean tRet = false;
+        if(ModelPath_ == NULL) {
+            // NULL model path
+            return tRet;
+        }
+
+        const char *ModelPath = env->GetStringUTFChars(ModelPath_, 0);
+        if(ModelPath == NULL) {
+            return tRet;
+        }
+
+        string tModelDir = ModelPath;
+        string tLastChar = tModelDir.substr(tModelDir.length() - 1, 1);
+        if(tLastChar == "\\") {
+            tModelDir = tModelDir.substr(0, tModelDir.length() - 1) + "/";
+        }
+        else if(tLastChar != "/") {
+            tModelDir += "/";
+        }
+
+        arcface = new Arcface(tModelDir);
+
+        env->ReleaseStringUTFChars(ModelPath_, ModelPath);
+        extraction_sdk_init_ok = true;
+        tRet = true;
+        return tRet;
+    }
+
+
+    JNIEXPORT jfloatArray JNICALL
+    Java_com_revivers_mtcnn_ARCFACE_getFeature(JNIEnv *env, jobject instance,
+                                                    jbyteArray imageData_, jint imageWidth, jint imageHeight, jint imageChannel,
+                                                     jintArray faceInfoData_) {
+
+        if(!extraction_sdk_init_ok) {
+            return NULL;
+        }
+
+        jbyte *imageData = env->GetByteArrayElements(imageData_, NULL);
+        if(imageData == NULL) {
+            env->ReleaseByteArrayElements(imageData_, imageData, 0);
+            return NULL;
+        }
+
+        if(imageWidth<20 || imageHeight<20) {
+            env->ReleaseByteArrayElements(imageData_, imageData, 0);
+            return NULL;
+        }
+
+        // Image Channel Check
+
+        unsigned char *faceImageCharData_1 = (unsigned char*)imageData;
+
+        /* Need to check later */
+        ncnn::Mat ncnn_img = ncnn::Mat::from_pixels(faceImageCharData_1, ncnn::Mat::PIXEL_RGBA2BGR, imageWidth, imageHeight);
+
+
+        jint *faceInfoData = env->GetIntArrayElements(faceInfoData_, NULL);
+
+        int i = 0;
+        FaceInfo tempFaceInfo;
+        tempFaceInfo.x[0] = faceInfoData[i++];
+        tempFaceInfo.y[0] = faceInfoData[i++];
+        tempFaceInfo.x[1] = faceInfoData[i++];
+        tempFaceInfo.y[1] = faceInfoData[i++]; // i = 4
+        for(int j = 0; j < 5; j++) {
+            tempFaceInfo.landmark[2*j] = faceInfoData[i];
+            tempFaceInfo.landmark[2*j+1] = faceInfoData[i + 5];
+            i += 1;
+        }
+
+
+        ncnn::Mat det1 = preprocess(ncnn_img, tempFaceInfo);
+
+
+        //float start = (double)getTickCount();
+        vector<float> feature1 = arcface->getFeature(det1);
+
+        float *feature1_ = new float[feature1.size()];
+        for(int i = 0; i < feature1.size(); i++) {
+            feature1_[i] = feature1[i];
+        }
+
+        //cout << "Extraction Time: " << (getTickCount() - start) / getTickFrequency() << "s" << std::endl;
+
+        jfloatArray featureOut = env->NewFloatArray(feature1.size());
+        env->SetFloatArrayRegion(featureOut, 0, feature1.size(), feature1_);
+        delete[] feature1_;
+
+        return featureOut;
     }
 
 }

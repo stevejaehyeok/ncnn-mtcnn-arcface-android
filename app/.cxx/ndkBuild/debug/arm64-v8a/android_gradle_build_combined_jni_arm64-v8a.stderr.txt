@@ -1,5 +1,5 @@
 In file included from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/combined_jni.cpp:32:
-In file included from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.h:80:
+In file included from /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.h:70:
 /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.cpp:391:38: warning: format specifies type 'int' but the argument has type 'std::__ndk1::vector<Bbox, std::__ndk1::allocator<Bbox> >::size_type' (aka 'unsigned long') [-Wformat]
     printf("firstBbox_.size()=%d\n", firstBbox_.size());
                               ~~     ^~~~~~~~~~~~~~~~~

@@ -21,10 +21,10 @@
         android:layout_height="wrap_content"
         android:text="detect" />
     <Button
-        android:id="@+id/buttonDetectGPU"
+        android:id="@+id/buttonExtract"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="识别-gpu" />
+        android:text="Feature Extraction" />
 
         <Button
             android:id="@+id/testButton"

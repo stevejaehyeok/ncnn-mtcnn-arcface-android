@@ -88,7 +88,12 @@
   /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/ncnn-android-vulkan-lib/include/ncnn/gpu.h \
   /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/ncnn-android-vulkan-lib/include/ncnn/benchmark.h \
   /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.h \
+  /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/base.h \
+  /Users/stevejaehyeokkim/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include/cmath \
+  /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/base.cpp \
   /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.cpp \
+  /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/arcface.h \
+  /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/arcface.cpp \
   /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/squeezenet_v1.1.id.h
 
 /Users/stevejaehyeokkim/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include/string:
@@ -267,6 +272,16 @@
 
 /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.h:
 
+/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/base.h:
+
+/Users/stevejaehyeokkim/Library/Android/sdk/ndk/21.3.6528147/sources/cxx-stl/llvm-libc++/include/cmath:
+
+/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/base.cpp:
+
 /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/mtcnn.cpp:
+
+/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/arcface.h:
+
+/Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/arcface.cpp:
 
 /Users/stevejaehyeokkim/Desktop/Workspace/Android-Studio-Workspace/ncnn-android-mtcnn-share/app/src/main/jni/squeezenet_v1.1.id.h:

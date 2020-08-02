@@ -2880,7 +2880,7 @@ public final class R {
     public static final int blocking=0x7f07001f;
     public static final int bottom=0x7f070020;
     public static final int buttonDetect=0x7f070021;
-    public static final int buttonDetectGPU=0x7f070022;
+    public static final int buttonExtract=0x7f070022;
     public static final int buttonImage=0x7f070023;
     public static final int buttonPanel=0x7f070024;
     public static final int center=0x7f070025;

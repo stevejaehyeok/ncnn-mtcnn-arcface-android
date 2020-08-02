@@ -616,7 +616,7 @@ id beginning
 id blocking
 id bottom
 id buttonDetect
-id buttonDetectGPU
+id buttonExtract
 id buttonImage
 id buttonPanel
 id center

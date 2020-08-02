@@ -615,7 +615,7 @@ int id beginning 0x7f07001e
 int id blocking 0x7f07001f
 int id bottom 0x7f070020
 int id buttonDetect 0x7f070021
-int id buttonDetectGPU 0x7f070022
+int id buttonExtract 0x7f070022
 int id buttonImage 0x7f070023
 int id buttonPanel 0x7f070024
 int id center 0x7f070025

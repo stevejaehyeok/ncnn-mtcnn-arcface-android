@@ -61,6 +61,13 @@ public class MainActivity extends Activity
 
     private MTCNN mtcnn = new MTCNN();
 
+    private ARCFACE arcface = new ARCFACE();
+
+    private int[] currentFaceInfo = new int[14];
+
+    private float[] prevFeature = null;
+    private boolean firstTime = true;
+
     //private GoogleApiClient client;
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -85,6 +92,8 @@ public class MainActivity extends Activity
             copyBigDataToSD("det1.param");
             copyBigDataToSD("det2.param");
             copyBigDataToSD("det3.param");
+            copyBigDataToSD("mobilefacenet.bin");
+            copyBigDataToSD("mobilefacenet.param");
             Log.i("Temp tag", "Succeeded to load the weights");
         } catch (IOException e) {
             e.printStackTrace();
@@ -98,6 +107,16 @@ public class MainActivity extends Activity
 //        String sdPath = "src/main/assets/";
         Log.i("sdPath",sdPath);
         mtcnn.FaceDetectionModelInit(sdPath);
+
+
+        // Arcface model initialization
+        if (arcface.FeatureExtractionModelInit(sdPath)) {
+            Log.i("Temp tag", "ArcFace model successfully initialized");
+        }
+        else {
+            Log.i("Temp tag", "FAILED TO INITIALIZE THE ARCFACE MODEL!!!!!!!!");
+        }
+
         //Log.i("isMTCNN", isMTCNN + " ");
 
         infoResult = (TextView) findViewById(R.id.infoResult);
@@ -149,6 +168,9 @@ public class MainActivity extends Activity
                 else{
                     faceInfo = mtcnn.MaxFaceDetect(imageDate, width, height, 4);
                     //Log.i(TAG, "检测最大人脸");
+                    for(int i = 0; i < 14; i++) {
+                        currentFaceInfo[i] = faceInfo[i+1];
+                    }
                 }
                 timeDetectFace = System.currentTimeMillis() - timeDetectFace;
                 //Log.i(TAG, "人脸平均检测时间："+timeDetectFace/testTimeCount);
@@ -185,23 +207,34 @@ public class MainActivity extends Activity
             }
         });
 
-        Button buttonDetectGPU = (Button) findViewById(R.id.buttonDetectGPU);
+        Button buttonDetectGPU = (Button) findViewById(R.id.buttonExtract);
         buttonDetectGPU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                /*if (yourSelectedImage == null)
+
+                if(yourSelectedImage == null) {
                     return;
-
-                String result = squeezencnn.Detect(yourSelectedImage, true);
-
-                if (result == null)
-                {
-                    infoResult.setText("detect failed");
                 }
-                else
-                {
+
+                int width = yourSelectedImage.getWidth();
+                int height = yourSelectedImage.getHeight();
+                byte[] imageData = getPixelsRGBA(yourSelectedImage);
+
+                float[] feature = arcface.getFeature(imageData, width, height, 4, currentFaceInfo);
+
+                if(firstTime) {
+                    infoResult.setText("No previous feature to compare");
+                    firstTime = false;
+                }
+                else {
+                    double sim = 0.0;
+                    for (int i = 0; i < feature.length; i++)
+                        sim += feature[i] * prevFeature[i];
+                    String result = Double.toString(sim);
                     infoResult.setText(result);
-                }*/
+                }
+
+                prevFeature = feature;
             }
         });
 
@@ -276,7 +309,8 @@ public class MainActivity extends Activity
                     Bitmap rgba = bitmap.copy(Bitmap.Config.ARGB_8888, true);
 
                     // resize to 227x227
-                    yourSelectedImage = Bitmap.createScaledBitmap(rgba, 227, 227, false);
+                    //yourSelectedImage = Bitmap.createScaledBitmap(rgba, 227, 227, false);
+                    yourSelectedImage = Bitmap.createScaledBitmap(rgba, rgba.getHeight(), rgba.getWidth(), false);
 
                     rgba.recycle();
 
