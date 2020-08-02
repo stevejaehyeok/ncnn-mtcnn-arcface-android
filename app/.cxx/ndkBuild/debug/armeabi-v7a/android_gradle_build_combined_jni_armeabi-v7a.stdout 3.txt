@@ -1,0 +1,2 @@
+[armeabi-v7a] Compile++ thumb: combined_jni <= combined_jni.cpp
+[armeabi-v7a] SharedLibrary  : libcombined_jni.so

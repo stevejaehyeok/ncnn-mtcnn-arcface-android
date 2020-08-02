@@ -3,5 +3,5 @@
 The MTCNN Face Detection 
 
 # Screenshot
-![](dami_ex.png)
+![](example.png)
 
