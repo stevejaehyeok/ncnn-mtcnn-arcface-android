@@ -1,6 +1,7 @@
-# ncnn-mtcnn-android
+# MTCNN and ARCFACE into JNI
 
-The MTCNN Face Detection done by Team Revivers from SW Maestro
+This is a repository to implement the JNI functions of MTCNN and Arcface models and to test them in the android application.
+Done by Team Revivers from SW Maestro.
 
 # Screenshot
 ![](example.png)
