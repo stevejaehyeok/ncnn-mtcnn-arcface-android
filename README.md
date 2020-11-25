@@ -7,3 +7,4 @@ This app extracts 128D feature vector and calculate a cosine similarity.
 # Screenshot
 ![](example.png)
 
+Reference: https://github.com/KangKangLoveCat/insightface_ncnn
