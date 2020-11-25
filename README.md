@@ -5,6 +5,6 @@ This is a repository to implement MTCNN and Arcface models with NCNN frameworks 
 This app extracts 128D feature vector and calculate a cosine similarity.
 
 # Screenshot
-![](example.png)
+<img src="example.png" width="300">
 
-Reference: https://github.com/KangKangLoveCat/insightface_ncnn
+Model Reference: https://github.com/KangKangLoveCat/insightface_ncnn
